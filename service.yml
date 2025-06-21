@@ -1,0 +1,16 @@
+# hello-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8080"
+spec:
+  selector:
+    app: hello-world
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
